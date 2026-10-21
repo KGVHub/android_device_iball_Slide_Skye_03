@@ -1,2 +1,1 @@
-LOCAL_DIR := $(call my-dir)
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/lineage_Slide_Skye_03.mk
+PRODUCT_MAKEFILES := lineage_Slide_Skye_03:$(LOCAL_DIR)/lineage.mk
