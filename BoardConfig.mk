@@ -16,8 +16,10 @@ TARGET_NO_KERNEL := true
 TARGET_NO_RECOVERY := true
 TARGET_SYSTEM_PROP := device/iball/Slide_Skye_03/system.prop
 
-# Measured raw system partition size. A-only, no system-as-root.
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1363148800
+# Physical system partition: 1363148800 bytes. Match the stock filesystem
+# payload limit, leaving space for SHA1 verity + 2-root FEC + signed footer.
+# Signing is a separate packaging step; generic Treble rejects BOARD_AVB_ENABLE.
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1341554688
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_GENERIC_AUDIO := false
