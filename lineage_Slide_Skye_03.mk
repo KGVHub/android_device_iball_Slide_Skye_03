@@ -13,7 +13,7 @@ PRODUCT_AAPT_CONFIG := normal large mdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_LOCALES := en_US
 
-# No vendor blobs, firmware, kernel, recovery or userdata in this target.
+# No vendor partition, firmware, kernel, recovery or userdata in this target.
 # Keep authenticated ADB rather than the generic GSI's ro.adb.secure=0.
 
 # These vendor dependencies are proprietary system libraries in the stock ROM.
