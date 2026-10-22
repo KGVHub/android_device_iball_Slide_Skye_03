@@ -26,3 +26,17 @@ BOARD_USES_GENERIC_AUDIO := false
 TARGET_USES_HWC2 := true
 TARGET_SCREEN_WIDTH := 600
 TARGET_SCREEN_HEIGHT := 1024
+
+# Stock vendor policy, compiled by an init without secilc -m (see
+# lineage-port/patches/system-sepolicy-stock-vendor-dups.patch).
+BOARD_SEPOLICY_STOCK_VENDOR_CIL := device/iball/Slide_Skye_03/sepolicy/stock_nonplat_sepolicy.cil
+
+# The stock vendor ships its own older copies of most VNDK libraries in
+# /vendor/lib. Search the platform VNDK first for vendor processes, or
+# mixed versions fail to link (e.g. missing gServiceSidMap in hwcomposer).
+TARGET_LD_CONFIG_FILE := device/iball/Slide_Skye_03/ld.config.txt
+
+# Use the stock vendor's fingerprint. Lineage's own is 94 characters, over
+# the 91 the stock init accepts, so ro.build.fingerprint stayed empty and
+# ActivityManager crashed formatting the fingerprint-mismatch warning.
+BUILD_FINGERPRINT := iBall/Slide_Skye_03/Slide_Skye_03:8.1.0/OPM2.171019.012/32419:user/release-keys
