@@ -16,8 +16,6 @@ PRODUCT_LOCALES := en_US
 # No vendor partition, firmware, kernel, recovery or userdata in this target.
 # Keep authenticated ADB rather than the generic GSI's ro.adb.secure=0.
 
-# These vendor dependencies are proprietary system libraries in the stock ROM.
-# The setup script copies them from the already committed stock blob repo.
-PRODUCT_COPY_FILES += \
-    device/iball/Slide_Skye_03/proprietary/libefuse.so:system/lib/libefuse.so \
-    device/iball/Slide_Skye_03/proprietary/librpmbclient.so:system/lib/librpmbclient.so
+# Proprietary system libraries the stock vendor needs (libefuse, librpmbclient),
+# from android_vendor_iball_Slide_Skye_03.
+$(call inherit-product, vendor/iball/Slide_Skye_03/Slide_Skye_03-vendor.mk)
