@@ -1,0 +1,5 @@
+# Device-specific performance settings backed by measurements in
+# docs/PERFORMANCE.md.
+
+on property:sys.boot_completed=1
+    write /sys/class/devfreq/60000000.gpu/min_freq 384000000
